@@ -63,6 +63,7 @@ i.fa-star {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.5s ease;
 }
 
 .todo li {
@@ -86,6 +87,55 @@ i.fa-star {
     background-color: green;
 }
 
-.fa-trash, .fa-check {
+.fa-trash, 
+.fa-check {
     pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: #ff6f47;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.select::after {
+    content: '\25bc';
+    position: absolute;
+    background: #ff6f47;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    padding: 1rem;
+}
+
+.select:hover::after {
+    background: white;
+    color: #ff6f47;
+    transition: 0.3s ease all;
 }
