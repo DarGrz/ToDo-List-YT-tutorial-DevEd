@@ -4,12 +4,20 @@ const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
 
+
 //Event Listeners 
+// Add ToDo
 todoButton.addEventListener('click', addTodo);
+// Remove ToDo
+todoList.addEventListener('click', deleteCheck);
 
 
 //Functions
 function addTodo(e) {
+    if(todoInput.value === '') {
+        alert('Please enter ToDo');
+        return;
+    }
     // Prevent from submitting
     e.preventDefault();
     // Todo Div
@@ -32,7 +40,17 @@ function addTodo(e) {
     todoDiv.appendChild(trashButton);
     // Append to list
     todoList.appendChild(todoDiv);
-    //Clear Input text
+    //Clear Input value
     todoInput.value = '';
-
 };
+
+function deleteCheck(e) {
+    const item = e.target;
+    // Delete todo
+    if(item.classList[0] === "trash-btn") {
+       const todo = item.parentElement;
+       todo.remove();
+    }
+}
+
+   

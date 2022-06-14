@@ -85,3 +85,7 @@ i.fa-star {
 .complete-btn {
     background-color: green;
 }
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
